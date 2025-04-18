@@ -1,0 +1,39 @@
+<div class="container py-4">
+    <div class="card p-4 shadow border-0">
+      <h4 class="text-primary mb-4">Add New Product</h4>
+  
+      <form #addForm="ngForm" (ngSubmit)="onSubmit()" class="row g-3">
+  
+        <div class="col-md-6">
+          <label>Name</label>
+          <input type="text" class="form-control" name="name" [(ngModel)]="product.name" required />
+        </div>
+  
+        <div class="col-md-6">
+          <label>Brand</label>
+          <input type="text" class="form-control" name="brand" [(ngModel)]="product.brand" required />
+        </div>
+  
+        <div class="col-md-6">
+          <label>Price</label>
+          <input type="number" class="form-control" name="price" [(ngModel)]="product.price" required />
+        </div>
+  
+        <div class="col-md-6">
+          <label>Count</label>
+          <input type="number" class="form-control" name="quantity" [(ngModel)]="product.quantity" />
+        </div>
+  
+        <div class="col-12">
+          <label>Image(URL)</label>
+          <input type="text" class="form-control" name="imgSrc" [(ngModel)]="product.imgSrc" />
+        </div>
+  
+        <div class="col-12 d-flex justify-content-between mt-4">
+          <button type="button" class="btn btn-secondary" [routerLink]="['/admin/products']">Cancel</button>
+          <button type="submit" class="btn btn-success" [disabled]="addForm.invalid">Add Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

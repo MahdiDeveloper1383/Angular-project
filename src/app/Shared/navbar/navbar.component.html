@@ -1,0 +1,14 @@
+<nav class="navbar navbar-light bg-light px-3">
+    <!-- Mobile (hamburger) -->
+    <button class="btn btn-outline-secondary d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+      <i class="bi bi-list"></i>
+    </button>
+  
+    <!-- Desktop (toggle button) -->
+    <button class="btn btn-outline-secondary d-none d-lg-block" (click)="toggleSidebar.emit()">
+      <i class="bi bi-list"></i> Toggle
+    </button>
+  
+    <span class="navbar-brand ms-2">Admin Panel</span>
+  </nav>
+  

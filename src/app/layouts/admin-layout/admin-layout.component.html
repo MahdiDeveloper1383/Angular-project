@@ -1,0 +1,28 @@
+<div class="page-container d-flex flex-column min-vh-1000">
+<app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
+<div class="d-flex">
+  <!-- Desktop Sidebar -->
+  <app-sidebar
+    [class.d-none]="isSidebarCollapsed"
+    [class]="isSidebarCollapsed?'d-none d-lg-block bg-dark text-white':''"
+    style="width: 250px;">
+  </app-sidebar>
+
+  <!-- Content -->
+  <div class="flex-grow-1 p-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Mobile Offcanvas Sidebar -->
+<div class="offcanvas offcanvas-start d-lg-none bg-dark text-white" tabindex="-1" id="mobileSidebar">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <app-sidebar></app-sidebar>
+  </div>
+</div>
+  <app-footer></app-footer>
+</div>

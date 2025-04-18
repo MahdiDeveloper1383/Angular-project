@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<app-header></app-header>
+<div class="container mt-5">
+    <div class="row" *ngIf="Product">
+        <!-- Product Images -->
+        <div class="col-md-6 mb-4">
+            <img [src]="Product.imgSrc" alt="Product" class="img-fluid rounded mb-3 product-image" id="mainImage">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-6">
+            <h2 class="mb-3">{{Product.name}}</h2>
+            <p class="text-muted mb-4">{{Product.Model}}</p>
+            <div class="mb-3">
+                <span class="h4 me-2">${{Product.price}}</span>
+            </div>
+            <div class="mb-3">
+                <i class="bi bi-star-fill text-warning" *ngFor="let stars of [].constructor(getStars(Product.stars).full)"></i>
+                <i class="bi bi-star-half text-warning" *ngIf="getStars(Product.stars).half"></i>
+                <i class="bi bi-star text-muted" *ngFor="let empty of [].constructor(getStars(Product.stars).empty)"></i>
+                <small class="text-muted">({{Product.stars}})</small>
+            </div>
+            <p class="mb-4">Experience premium sound quality and industry-leading noise cancellation with these wireless
+                headphones. Perfect for music lovers and frequent travelers.</p>
+            <div class="mb-4">
+                <label for="quantity" class="form-label">Quantity:</label>
+                <input type="number" class="form-control" id="quantity" value="1" min="1" style="width: 80px;" [(ngModel)]="quantity">
+            </div>
+            <button class="btn btn-primary btn-lg mb-3 me-2" (click)="Buy_Product(Product,quantity)">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                </button>
+            <button class="btn btn-outline-secondary btn-lg mb-3" (click)="Add_fav_Product(Product)">
+                    <i class="bi bi-heart"></i> Add to Wishlist
+                </button>
+            <div class="mt-4" *ngIf="Product.type === 'laptop'">
+                <h5>Key Features:</h5>
+                    <ul>
+                        <li>Prossecer: {{Product.processor}}</li>
+                        <li>Ram: {{Product.ram}}</li>
+                        <li>Graphics: {{Product.graphics}}</li>
+                        <li >Hard Disk Size: {{Hardisk()}}</li>
+                        <li>Display:{{Product.display}}Inch</li>
+
+                    </ul>
+            </div>
+            <div class="mt-4" *ngIf="Product.type === 'phone'">
+                <h5>Key Features:</h5>
+                    <ul>
+                        <li>Prossecer: {{Product.processor}}</li>
+                        <li>Ram: {{Product.ram}}</li>
+                        <li>Graphics: {{Product.graphics}}</li>
+                        <li >Memory Storage: {{Product.Memory_Storage}}</li>
+                        <li>Display: {{Product.display}}Inch</li>
+                        <li>RefreshRate: {{Product.RefreshRate}}HZ</li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

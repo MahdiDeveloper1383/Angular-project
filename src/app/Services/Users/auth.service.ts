@@ -33,6 +33,8 @@ export class AuthService {
     this.currentUser = null;
     this.Islog = false;
     localStorage.removeItem(LOCAL_STORAGE_USER_KEY);
+    localStorage.removeItem('fav-products');
+    localStorage.removeItem('buy-products');
     this.isLoggedInSubject.next(false);
     }catch(error){
       throw error

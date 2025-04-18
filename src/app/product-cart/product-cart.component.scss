@@ -47,6 +47,9 @@
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
+.Products-div{
+    margin-top: -25px;
+}
 .product-list img {
     width: 100%; 
     border-radius: 4px 4px 0 0; 
@@ -58,6 +61,12 @@
     padding: 10px; 
     background-color: #f1f1f1;
     border-top: 1px solid #ddd; 
+}
+.nav{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-decoration: double;
 }
 .unavailable {
     opacity: 0.5; /* Make unavailable products appear faded */
@@ -103,7 +112,7 @@
     border-radius: 8px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     gap: 10px; 
-    height: 100%;
+    height: fit-content;
 }
 .Filter-body{
     padding: 15px; 
@@ -157,7 +166,21 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-  }
+    margin-left: 20px;
+    list-style: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+      
+        li {
+          margin-bottom: 10px; /* Add spacing between items */
+          font-weight: bold; /* Make text bold */
+      
+          .fa-angle-right {
+            margin-right: 5px; /* Add spacing between icon and text */
+          }
+        }
+      
+      }
+
   .product-list img{
       width: 100%;
       border-radius: 4px 4px 0 0;
@@ -257,4 +280,8 @@
   .pro-d-head {
       font-size: 18px;
       font-weight: 300;
+  }
+  a{
+    text-decoration: none;
+    cursor: pointer;
   }

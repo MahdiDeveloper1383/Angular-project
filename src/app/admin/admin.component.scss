@@ -1,0 +1,28 @@
+body {
+    font-size: 0.875rem;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0;
+    border-right: 1px solid #dee2e6;
+  }
+  
+  .sidebar .nav-link {
+    color: #333;
+  }
+  
+  .sidebar .nav-link.active {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  main {
+    margin-left: 200px;
+    padding: 20px;
+  }
+  

@@ -1,0 +1,45 @@
+<!-- admin-edit-product.component.html -->
+<div class="container py-4">
+    <div class="card shadow p-4">
+      <h4 class="text-primary mb-4">Edit</h4>
+  
+      <form #editForm  class="row g-3">
+
+        <div class="col-md-6">
+          <label>Name</label>
+          <input class="form-control" name="name" [(ngModel)]="product.name" required />
+        </div>
+
+        <div class="col-md-6">
+          <label>Brand</label>
+          <input class="form-control" name="brand" [(ngModel)]="product.brand" required />
+        </div>
+  
+        <div class="col-md-6">
+          <label>Price</label>
+          <input type="number" class="form-control"  name="price" [(ngModel)]="product.price" required />
+        </div>
+  
+        <div class="col-md-6">
+          <label>Count</label>
+          <input type="number" class="form-control" name="quantity" [(ngModel)]="product.count" />
+        </div>
+  
+        <div class="col-12">
+          <label>Image</label>
+          <input type="text" class="form-control" name="imgSrc" [(ngModel)]="product.imgSrc" />
+        </div>
+  
+    
+  
+        <div class="col-12 text-end mt-3 d-flex justify-content-between">
+            <button class="btn btn-secondary" type="button" [routerLink]="['/admin/Products']" >Cancel</button>
+            <button class="btn btn-success" type="submit" (click)="Save_but()">
+              Save Edits
+            </button>
+          </div>
+  
+      </form>
+    </div>
+  </div>
+  

@@ -153,7 +153,12 @@ a:hover {
 .sm-text {
     font-size: 15px;
 }
-
+.Invalid_Password{
+    color: red;
+}
+.Wrong_Value{
+    color: red;
+}
 @media screen and (max-width: 992px) {
     .card1 {
         width: 100%;

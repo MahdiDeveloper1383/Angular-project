@@ -1,0 +1,30 @@
+.slide {
+    display: none;
+    text-align: center;
+  }
+  
+  .slide img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button.prev {
+    left: 10px;
+  }
+  
+  button.next {
+    right: 10px;
+  }
+ 

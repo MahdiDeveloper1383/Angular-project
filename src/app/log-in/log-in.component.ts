@@ -16,7 +16,7 @@ export class LogInComponent implements OnInit{
     private AuthServ:AuthService,
     private render:Renderer2
   ){}
-  Users!:Users[]
+  Users:Users[] =[]
   Islogged!:boolean
   @ViewChild('Wrraning',{static:true}) Wrraning!:ElementRef
   ngOnInit(): void {

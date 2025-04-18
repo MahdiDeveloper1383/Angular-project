@@ -5,7 +5,12 @@
     <div class="col-md-3 Filter-body">
         <section class="panel">
             <div class="panel-body">
-                <input type="text" placeholder="Keyword Search" class="form-control" />
+                <input type="text" 
+                placeholder="Keyword Search" 
+                class="form-control"
+                [(ngModel)]="searchKeyword"
+                (input)="filterByKeyword()"
+                />
             </div>
         </section>
         <section class="panel">
@@ -14,157 +19,72 @@
             </header>
             <div class="panel-body-1">
                 <ul class="nav prod-cat">
+                    <li><a (click)="getAll()">-ALL</a></li>
+                    <li><a (click)="filterByType('laptop')">-Laptops</a></li>
+                    <li><a (click)="filterByType('phone')">-Phones</a></li>
                     <li>
-                        <a href="#" class="active"><i class="fa fa-angle-right"></i> Dress</a>
-                        <ul class="nav">
-                            <li class="active"><a href="#">- Shirt</a></li>
-                            <li><a href="#">- Pant</a></li>
-                            <li><a href="#">- Shoes</a></li>
+                        <a (click)="clickonBrands()"><i [class]="IsClickedonBrands?'fa fa-angle-right':' fa fa-angle-down'" ></i>Brands</a>
+                        <ul class="nav items-ul" *ngIf="IsClickedonBrands">
+                            <li><a (click)="filterByBrand('Asus')">-Asus</a></li>
+                            <li><a (click)="filterByBrand('Dell')">-Dell</a></li>
+                            <li><a (click)="filterByBrand('Microsoft')">-Microsoft</a></li>
+                            <li><a (click)="filterByBrand('Apple')">-Apple</a></li>
+                            <li><a (click)="filterByBrand('Samsung')">-Samasung</a></li>
+                            <li><a (click)="filterByBrand('Motorola')">-Motorola</a></li>
+                            <li><a (click)="filterByBrand('Xiaomi')">-Xiaomi</a></li>
                         </ul>
                     </li>
+                    <li><a (click)="filterByCount('available')">-Available</a></li>
+                    <li><a (click)="filterByCount('unavailable')">-Unavailable</a></li>
                     <li>
-                        <a href="#"><i class="fa fa-angle-right"></i> Bags &amp; Purses</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right"></i> Beauty</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right"></i> Coat &amp; Jacket</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right"></i> Jeans</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right"></i> Jewellery</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right"></i> Electronics</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right"></i> Sports</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right"></i> Technology</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right"></i> Watches</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right"></i> Accessories</a>
-                    </li>
+                    <li><a (click)="SortProductsbyprice('Highest')">-Sort by Highest Price</a></li>
+                    <li><a (click)="SortProductsbyprice('Lowest')">-Sort by Lowest Price</a></li>
                 </ul>
             </div>
         </section>
-        <section class="panel">
-            <header class="panel-heading">
-                Price Range
-            </header>
-            <div class="panel-body sliders">
-                <div id="slider-range" class="slider"></div>
-                <div class="slider-info">
-                    <span id="slider-range-amount"></span>
-                </div>
-            </div>
-        </section>
-        <section class="panel">
-            <header class="panel-heading">
-                Filter
-            </header>
-            <div class="panel-body">
-                <form role="form product-form">
-                    <div class="form-group">
-                        <label>Brand</label>
-                        <select class="form-control hasCustomSelect" style="-webkit-appearance: menulist-button; width: 231px; position: absolute; opacity: 0; height: 34px; font-size: 12px;">
-                            <option>Wallmart</option>
-                            <option>Catseye</option>
-                            <option>Moonsoon</option>
-                            <option>Textmart</option>
-                        </select>
-                        <span class="customSelect form-control" style="display: inline-block;"><span class="customSelectInner" style="width: 209px; display: inline-block;">Wallmart</span></span>
-                    </div>
-                    <div class="form-group">
-                        <label>Color</label>
-                        <select class="form-control hasCustomSelect" style="-webkit-appearance: menulist-button; width: 231px; position: absolute; opacity: 0; height: 34px; font-size: 12px;">
-                            <option>White</option>
-                            <option>Black</option>
-                            <option>Red</option>
-                            <option>Green</option>
-                        </select>
-                        <span class="customSelect form-control" style="display: inline-block;"><span class="customSelectInner" style="width: 209px; display: inline-block;">White</span></span>
-                    </div>
-                    <div class="form-group">
-                        <label>Type</label>
-                        <select class="form-control hasCustomSelect" style="-webkit-appearance: menulist-button; width: 231px; position: absolute; opacity: 0; height: 34px; font-size: 12px;">
-                            <option>Small</option>
-                            <option>Medium</option>
-                            <option>Large</option>
-                            <option>Extra Large</option>
-                        </select>
-                        <span class="customSelect form-control" style="display: inline-block;"><span class="customSelectInner" style="width: 209px; display: inline-block;">Small</span></span>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Filter</button>
-                </form>
-            </div>
-        </section>
     </div>
-    <div class="col-md-9">
-        <section class="panel">
-            <div class="panel-body">
-                <div class="pull-right">
-                    <ul class="pagination pagination-sm pro-page-list">
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
+    <div class="col-md-9 Products-div">
         <div class="row g-4 Product-div">
-            <div class="col-md-4 col-sm-6 col-12 product-list" [class.unavailable]='product.count===0' *ngFor="let product of Laptops;let i = index">
+            <div class="col-md-4 col-sm-6 col-12 product-list" [class.unavailable]='product.count===0' *ngFor="let product of paginatedProducts ;let i = index">
                 <div class="card products-sec">
-                    <img [src]="product.imgSrc" class="card-img-top" alt="Product Image">
-                    <div class="card-body">
+                    <img [src]="product.imgSrc" [routerLink]="['/product',product.id]" class="card-img-top" alt="Product Image">
+                    <div class="card-body" [routerLink]="['/product',product.id]">
                         <h5 class="card-title">{{product.name}}</h5>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="h5 mb-0">${{product.price}}</span>
                             <div>
-                                <i class="bi bi-star-fill text-warning" *ngFor="stars of [].constructor(getStars(product.stars).full)"></i>
+                                <i class="bi bi-star-fill text-warning" *ngFor="let stars of [].constructor(getStars(product.stars).full)"></i>
                                 <i class="bi bi-star-half text-warning" *ngIf="getStars(product.stars).half"></i>
-                                <i class="bi bi-star text-muted" *ngFor="empty of [].constructor(getStars(product.stars).empty)"></i>
+                                <i class="bi bi-star text-muted" *ngFor="let empty of [].constructor(getStars(product.stars).empty)"></i>
                                 <small class="text-muted">({{product.stars}})</small>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light">
-                        <button class="btn btn-primary btn-sm">Add to Cart</button>
-                        <button class="btn btn-outline-secondary btn-sm" (click)="Add_fav_Lpatop_but(product)"><i [class]="product.isFavorite ? 'bi bi-heart-fill text-danger' : 'bi bi-heart'"></i></button>
+                        <button class="btn btn-primary btn-sm" (click)=" Buy_Product_but(product)">Add to Cart</button>
+                        <button class="btn btn-outline-secondary btn-sm" (click)="Add_fav_Product_but(product)" ><i [class]="product.isFavorite ? 'bi bi-heart-fill text-danger' : 'bi bi-heart'"></i></button>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-12 product-list" [class.unavailable]='product.count===0'*ngFor="let product of Phones">
-                <div class="card products-sec">
-                    <img [src]="product.imgSrc" class="card-img-top" alt="Product Image">
-                    <div class="card-body">
-                        <h5 class="card-title">{{product.name}}</h5>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="h5 mb-0">${{product.price}}</span>
-                            <div>
-                                <i class="bi bi-star-fill text-warning" *ngFor="stars of [].constructor(getStars(product.stars).full)"></i>
-                                <i class="bi bi-star-half text-warning" *ngIf="getStars(product.stars).half"></i>
-                                <i class="bi bi-star text-muted" *ngFor="empty of [].constructor(getStars(product.stars).empty)"></i>
-                                <small class="text-muted">({{product.stars}})</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between bg-light">
-                        <button class="btn btn-primary btn-sm">Add to Cart</button>
-                        <button class="btn btn-outline-secondary btn-sm" (click)="Add_fav_Phone_but(product)"><i [class]="product.isFavorite ? 'bi bi-heart-fill text-danger' : 'bi bi-heart'"></i></button>
-                    </div>
-                </div>
-            </div>
+                    
+    
         </div>
-        
+        <nav class="mt-4">
+            <ul class="pagination justify-content-center">
+              <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" (click)="previousPage()">Previous</a>
+              </li>
+              <li
+                class="page-item"
+                *ngFor="let page of totalPagesArray; let i = index"
+                [class.active]="currentPage === i + 1"
+              >
+                <a class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+              </li>
+              <li class="page-item" [class.disabled]="currentPage === totalPages">
+                <a class="page-link" (click)="nextPage()">Next</a>
+              </li>
+            </ul>
+          </nav>
     </div>
     </div>

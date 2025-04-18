@@ -26,7 +26,7 @@
 								<div class="top_bar_user">
 									<div class="user_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg" alt=""></div>
 									<div>{{User_Name}}</div>
-									<div><a (click)="LogoutBut()">logout</a></div>
+									<div><a href="/" (click)="LogoutBut()">logout</a></div>
 								</div>
 							}
 						</div>
@@ -44,7 +44,7 @@
 					<!-- Logo -->
 					<div class="col-lg-2 col-sm-3 col-3 order-1">
 						<div class="logo_container">
-							<div class="logo"><a href="#">MoboDigi</a></div>
+							<div class="logo"><a href="/">MoboDigi</a></div>
 						</div>
 					</div>
 
@@ -53,8 +53,9 @@
 						<div class="header_search">
 							<div class="header_search_content">
 								<div class="header_search_form_container">
-									<form action="#" class="header_search_form clearfix">
-										<input type="search" required="required" class="header_search_input" placeholder="Search for products...">
+									<form action="#" class="header_search_form clearfix" (click)="$event.preventDefault()">
+										<input type="search" required="required" class="header_search_input" placeholder="Search for products..." #Search
+										(input)="Serachbox(Search)">
 										<div class="custom_dropdown" style="display: none;">
 											<div class="custom_dropdown_list">
 												<span class="custom_dropdown_placeholder clc">All Categories</span>
@@ -82,8 +83,8 @@
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
 								<div class="wishlist_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918681/heart.png" alt=""></div>
 								<div class="wishlist_content">
-									<div class="wishlist_text"><a href="#">Wishlist</a></div>
-									<div class="wishlist_count">{{Phone_fav_num+Laptop_fav_num}}</div>
+									<div class="wishlist_text"><a [routerLink]="['/wishlist']">Wishlist</a></div>
+									<div class="wishlist_count">{{Product_fav_num}}</div>
 								</div>
 							</div>
 
@@ -92,11 +93,11 @@
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
 										<img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918704/cart.png" alt="">
-										<div class="cart_count"><span>3</span></div>
+										<div class="cart_count"><span>{{Buy_Product_num}}</span></div>
 									</div>
-									<div class="cart_content">
-										<div class="cart_text"><a href="#">Cart</a></div>
-										<div class="cart_price">$185</div>
+									<div class="cart_content"[routerLink]="islog?['/cart']:['/login']">
+										<div class="cart_text"><a>Cart</a></div>
+										<div class="cart_price">${{Buy_Product_price}}</div>
 									</div>
 								</div>
 							</div>
@@ -125,44 +126,46 @@
 								<ul class="standard_dropdown main_nav_dropdown">
 									<li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
 									<li class="hassubs">
-										<a href="#">Laptop<i class="fas fa-chevron-down"></i></a>
-										<ul>
+										<a>Laptop<i class="fas fa-chevron-down"></i></a>
+										<ul >
 											<li>
-												<a href="#">Asus<i class="fas fa-chevron-down"></i></a>
+												<a (click)="setfilterlaptopbybrand('Asus')">Asus<i class="fas fa-chevron-down"></i></a>
 												<ul>
-													<li><a href="#">Asus 1<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Asus 3<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Asus 2<i class="fas fa-chevron-down"></i></a></li>
+													<li><a [routerLink]="['product/21']">Asus 1<i class="fas fa-chevron-down"></i></a></li>
+													<li><a [routerLink]="['product/26']">Asus 2<i class="fas fa-chevron-down"></i></a></li>
+													<li><a [routerLink]="['product/25']">Asus 3<i class="fas fa-chevron-down"></i></a></li>
 												</ul>
 											</li>
-											<li><a href="#">DELL<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">APPLE<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Surface<i class="fas fa-chevron-down"></i></a></li>
+											<li><a (click)="setfilterlaptopbybrand('Dell')">DELL<i class="fas fa-chevron-down"></i></a></li>
+											<li><a (click)="setfilterlaptopbybrand('Apple')">APPLE<i class="fas fa-chevron-down"></i></a></li>
+											<li><a (click)="setfilterlaptopbybrand('Microsoft')">Surface<i class="fas fa-chevron-down"></i></a></li>
 										</ul>
 									</li>
 									<li class="hassubs">
-										<a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
+										<a>Featured Brands<i class="fas fa-chevron-down"></i></a>
 										<ul>
 											<li>
-												<a href="#">APPLE<i class="fas fa-chevron-down"></i></a>
+												<a (click)="setfilterbybrand('Apple')">APPLE<i class="fas fa-chevron-down"></i></a>
 												<ul>
-													<li><a href="#">Laptop<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Mobiles<i class="fas fa-chevron-down"></i></a></li>
+													<li><a (click)="setfilterbyAppletype('laptop')">Laptop<i class="fas fa-chevron-down"></i></a></li>
+													<li><a (click)="setfilterbyAppletype('phone')">Mobiles<i class="fas fa-chevron-down"></i></a></li>
 												</ul>
 											</li>
-											<li><a href="#">Samsung<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Mototorola<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">DELL<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Xiaomi<i class="fas fa-chevron-down"></i></a></li>
+											<li><a (click)="setfilterbybrand('Samsung')">Samsung<i class="fas fa-chevron-down"></i></a></li>
+											<li><a (click)="setfilterbybrand('Motorola')">Motorola<i class="fas fa-chevron-down"></i></a></li>
+											<li><a (click)="setfilterbybrand('Dell')">DELL<i class="fas fa-chevron-down"></i></a></li>
+											<li><a (click)="setfilterbybrand('Asus')">Asus<i class="fas fa-chevron-down"></i></a></li>
+											<li><a (click)="setfilterbybrand('Microsoft')">Microsoft<i class="fas fa-chevron-down"></i></a></li>
+											<li><a (click)="setfilterbybrand('Xiaomi')">Xiaomi<i class="fas fa-chevron-down"></i></a></li>
 										</ul>
 									</li>
 									<li class="hassubs">
 										<a href="#">Pages<i class="fas fa-chevron-down"></i></a>
 										<ul>
-											<li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="product.html">Product<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+											<li><a href="/">Shop<i class="fas fa-chevron-down"></i></a></li>
+											<li><a [routerLink]="['/wishlist']">Wishlist<i class="fas fa-chevron-down"></i></a></li>
+											<li><a [routerLink]="islog?['/cart']:['/login']">Cart<i class="fas fa-chevron-down"></i></a></li>
+											<li><a [routerLink]="['/contact']">Contact<i class="fas fa-chevron-down"></i></a></li>
 										</ul>
 									</li>
 									<li><a [routerLink]="['/contact']">Contact<i class="fas fa-chevron-down"></i></a></li>
@@ -196,8 +199,11 @@
 						<div class="page_menu_content">
 							
 							<div class="page_menu_search">
-								<form action="#">
-									<input type="search" required="required" class="page_menu_search_input" placeholder="Search for products...">
+								<form>
+									<input type="search" required="required" 
+									class="page_menu_search_input" 
+									placeholder="Search for products..."
+									>
 								</form>
 							</div>
 							<ul class="page_menu_nav">
