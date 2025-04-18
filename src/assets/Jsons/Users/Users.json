@@ -1,0 +1,7 @@
+[
+    {"Id":1,"Username":"Mahdi8767","First_Name":"Mahdi","Last_Name":"Mohamad Nejhad","Gmail":"Mahdi@Gmail.com","Password":"3237546996trfx","City":"Qarazialadin","IsAdmin":true},
+    {"Id":2,"Username":"Ali24","First_Name":"Ali","Last_Name":"Mohamad Nejhad","Gmail":"Ali@Gmail.com","Password":"32375","City":"Qarazialadin","IsAdmin":false},
+    {"Id":3,"Username":"Mohadese83","First_Name":"Mohadese","Last_Name":"Moradi","Gmail":"Mohadese@Gmail.com","Password":"3245dswe5","City":"Tabriz","IsAdmin":true},
+    {"Id":4,"Username":"Mohamad14","First_Name":"Mohamad","Last_Name":"Ahmadi","Gmail":"Mohamad@Gmail.com","Password":"30004s42e","City":"Qarazialadin","IsAdmin":false},
+    {"Id":5,"Username":"Mahsa","First_Name":"Mahsa","Last_Name":"Zamani","Gmail":"Mahsa@Gmail.com","Password":"4ewe4443","City":"Tehran","IsAdmin":false}
+]
