@@ -15,20 +15,18 @@
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918597/mail.png" alt=""></div><a href="mailto:mahdi8767trfx@gmail.com">{{`mahdi8767trfx@gmail.com`}}</a></div>
 						</div>
 						<div class="top_bar_content ml-auto">
-							@if (!islog) {
-								<div class="top_bar_user">
+								<div class="top_bar_user" *ngIf="!islog; else user">
 									<div class="user_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg" alt=""></div>
 									<div><a [routerLink]="['./signup']">Sign Up</a></div>
 									<div><a [routerLink]="['./login']">Login</a></div>
 								</div>
-							}
-							@else {
+							<ng-template #user>
 								<div class="top_bar_user">
 									<div class="user_icon"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918647/user.svg" alt=""></div>
 									<div>{{User_Name}}</div>
 									<div><a href="/" (click)="LogoutBut()">logout</a></div>
 								</div>
-							}
+							</ng-template>
 						</div>
 					</div>
 				</div>

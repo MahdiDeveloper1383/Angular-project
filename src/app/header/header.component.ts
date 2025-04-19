@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../Services/Users/auth.service';
-import { NgIf } from '@angular/common';
+import { NgIf, NgTemplateOutlet } from '@angular/common';
 import { ProductAuthService } from '../Services/products/Auth/product-auth.service';
 import e from 'express';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterModule],
+  imports: [RouterModule,NgIf],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

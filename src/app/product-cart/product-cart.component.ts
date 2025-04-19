@@ -5,7 +5,6 @@ import { AuthService } from '../Services/Users/auth.service';
 import { ProductAuthService } from '../Services/products/Auth/product-auth.service';
 import { ActivatedRoute, Router, RouterLinkActive, RouterModule } from '@angular/router';
 import { ProductsService } from '../Services/products/products-services/products.service';
-import { SearchPipe } from '../pipe/Search/search.pipe';
 import { BehaviorSubject, debounceTime, Subject } from 'rxjs';
 import { IProductsModel } from '../Shared/Model/Products/ProductsModel';
 
