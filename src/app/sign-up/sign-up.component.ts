@@ -62,6 +62,15 @@ export class SignUpComponent implements OnInit{
           this.Wrong_password =''
         }, 3000);
       }
+      else if (!Gmail.value.includes('@gmail') && !Gmail.value.includes('@email')) {
+        alert('gmail must have @email or gmail')
+      }
+      else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(Password.value)) {
+        this.Wrong_password = 'Password must include uppercase, lowercase, number, and special character';
+        setTimeout(() => {
+          this.Wrong_password = '';
+        }, 3000);
+      }
       else if (First_Name.value==" "&&
         Last_Name.value==" "&&
         Username.value==" "&&
@@ -108,4 +117,5 @@ export class SignUpComponent implements OnInit{
       this.Render.setStyle(User_Password, 'boxShadow', '');
     }
   }
+
 }
