@@ -1,4 +1,5 @@
-# Project
+This Project genreated by HTML,CSS,Typescript,Bootsrap and Angular.This project content is about Digtal Shop that sale Phone and Laptop.In this project data Come from Json file this project have 2 Json file one for User and one for Products.This site have Ability like filter product,sign up,login,Product deatils page,Role for Users,buy Products,Gaurd for Admins and Delete Users.This site is English.
+ # Project
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
 
